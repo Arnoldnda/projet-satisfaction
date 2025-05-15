@@ -1,0 +1,67 @@
+# Guide de travail collaboratif avec Git – Projet Enquête de Satisfaction
+
+🧩Objectif de ce document
+Organiser le travail en équipe à 3 développeurs en utilisant Git et GitHub, pour :
+Répartir les tâches proprement
+Éviter les conflits de code
+Assurer un code propre, relu et stable
+
+🌳 Structure des branches
+main : Contient la version finale et stable du projet (ne pas modifier directement)
+dev : 	Branche de développement commune (tout le monde travaille à partir de celle-ci)
+feature-* : 	Branches personnelles de développement pour chaque fonctionnalité
+
+🧭 Étapes de travail (pour chaque membre)
+
+🔹 1. Se baser sur la branche dev
+Avant toute nouvelle tâche :
+git checkout dev
+git pull origin dev
+
+🔹 2. Créer une branche pour ta tâche
+git checkout -b feature-nom-tache
+
+Exemples :
+feature-backend-auth
+feature-frontend-form
+feature-db-init
+feature-export-csv
+feature-frontend-graphs
+
+🔹 3. Travailler dans ta branche
+git add .
+git commit -m "Description claire de ce que tu as fait"
+git push origin feature-nom-tache
+
+🔹 4. Créer une Pull Request (PR) sur GitHub
+Ouvre une Pull Request vers la branche dev
+Rédige un titre clair (ex : "Ajout du formulaire visiteur")
+Ajoute un message avec ce que tu as fait
+
+🔹 5. Relire et fusionner
+Un autre membre lit la PR, peut commenter ou demander une correction
+Si tout est bon, on clique sur "Merge" vers dev
+
+🔹 6. Mettre à jour sa copie locale
+Après chaque fusion :
+git checkout dev
+git pull origin dev
+
+✅ Bonnes pratiques
+Ne jamais travailler directement sur main
+Toujours créer une branche depuis dev
+Une branche = une seule fonctionnalité
+Toujours faire une Pull Request → relecture avant fusion
+Bien nommer ses branches et commits
+Partager les blocages dans le groupe pour avancer ensemble
+
+👥 Répartition des branches par membre
+Membre	Branche(s) principale(s)
+Arnold	feature-backend-auth, feature-backend-responses
+Cherif	feature-frontend-form, feature-frontend-admin, feature-frontend-graphs
+Archange	feature-backend-export, feature-db-stats
+
+📌 En résumé
+🔄 On travaille toujours à partir de dev, chacun sur sa propre branche.
+🧪 On fait une Pull Request pour valider chaque fonctionnalité.
+🔁 On met à jour notre code local régulièrement.
