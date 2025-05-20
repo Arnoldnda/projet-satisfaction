@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         satisfaction: {
-            types: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         commentaire: {
-            types: DataTypes.TEXT,
+            type: DataTypes.TEXT,
             allowNull: true 
         }
     },{
