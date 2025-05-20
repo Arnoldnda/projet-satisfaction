@@ -2,21 +2,13 @@ const express = require('express')
 const morgan = require('morgan')
 const {Sequelize} = require('sequelize')
 
+
+//Importer le fichier de connection a a base de donnée
+const sequelize = require('./src/db/sequelize')
+
+
 const app = express()
 const port = 3000 
-
-const sequelize = new Sequelize('project_satisfation', 'root', '', {
-    host: 'localhost',
-    dialect: 'mariadb',
-    dialectOptions: {
-        timezone: 'Etc/GMT-2',
-    },
-    logging: false
-})
-
-sequelize.authenticate()
-.then(_ => console.log('La connexion à la base de donnée à bien été établie'))
-.catch(error => console.log(`Impossible de se connecté a la base de donnée ${error}`)) 
 
 app
 .use(morgan('dev'))
