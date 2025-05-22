@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('service', {
+    return sequelize.define('administrateur', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true, 
