@@ -160,3 +160,5 @@ const visites = [
     raisonId: 3
   }
 ];
+
+module.exports = visites 
