@@ -24,6 +24,7 @@ sequelize.authenticate()
 const visite = visiteModel(sequelize, DataTypes)
 const raison = raisonModel(sequelize, DataTypes)
 const service = serviceModel(sequelize, DataTypes)
+const administrateur = administrateurModel(sequelize, DataTypes)
 
 // Définir les associations
 
@@ -36,7 +37,13 @@ raison.hasMany(visite, { foreignKey: 'raisonId' });
 visite.belongsTo(raison, { foreignKey: 'raisonId' });
 
 
+// Synchroniser la base (à appeler dans un fichier de setup, pas ici en prod)
+sequelize.sync({ force: true }) // ⚠️ utiliser `force: true` seulement en dev pour écraser les tables
+  .then(() => console.log('Base de données synchronisée'))
+  .catch((err) => console.error('Erreur de sync :', err));
+
+
 // Exporter les modèles
 module.exports = {
-    visite, service, raison
+    visite, service, raison, administrateur
 };
