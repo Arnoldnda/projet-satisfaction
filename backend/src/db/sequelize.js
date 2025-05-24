@@ -34,4 +34,4 @@ const initDb = () => {
     .catch((err) => console.error('Erreur de sync :', err))
 }
 
-module.exports = initDb 
+module.exports = {initDb} 
