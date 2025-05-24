@@ -15,6 +15,7 @@ app
 sequelize.initDb()
 
 //les end point ici 
+require('./src/routes/findAllVisites')(app)
 
 
 app.listen(port, () => console.log(`Notre application node est demanrré sur http://localhost:${port}`))
