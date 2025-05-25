@@ -18,8 +18,10 @@ sequelize.initDb()
 //Importer les routes 
 const visiteRoutes = require('./src/routes/visiteRoutes')
 const raisonRoutes = require('./src/routes/raisonRoutes')
+const serviceRoutes = require('./src/routes/serviceRoutes') 
 
 app
+.use(serviceRoutes)
 .use(raisonRoutes)
 .use(visiteRoutes)
 
