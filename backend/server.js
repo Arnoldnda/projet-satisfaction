@@ -12,12 +12,12 @@ app
 .use(morgan('dev'))
 .use(express.json())
 
+//Initialiser la base de donnée
 sequelize.initDb()
 
-//les end point ici 
-require('./src/routes/findAllVisites')(app)
-require('./src/routes/findVisitesByPk')(app)
-require('./src/routes/createVisite')(app)
+//Importer les routes 
+const visiteRoutes = require('./src/routes/visiteRoutes')
+app.use(visiteRoutes)
 
 
 app.listen(port, () => console.log(`Notre application node est demanrré sur http://localhost:${port}`))
