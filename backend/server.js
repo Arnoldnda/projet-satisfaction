@@ -17,7 +17,11 @@ sequelize.initDb()
 
 //Importer les routes 
 const visiteRoutes = require('./src/routes/visiteRoutes')
-app.use(visiteRoutes)
+const raisonRoutes = require('./src/routes/raisonRoutes')
+
+app
+.use(raisonRoutes)
+.use(visiteRoutes)
 
 
 app.listen(port, () => console.log(`Notre application node est demanrré sur http://localhost:${port}`))
