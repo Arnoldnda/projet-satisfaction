@@ -7,7 +7,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         nom: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                notEmpty: { msg: 'Le nom ne peut pas être vide.' },
+                len: {
+                    args: [2, 100],
+                    msg: 'Le nom doit contenir entre 2 et 100 caractères.'
+                }
+            }
         }
     },{
         timestamps: true,

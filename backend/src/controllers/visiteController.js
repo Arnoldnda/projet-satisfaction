@@ -1,4 +1,5 @@
 const { Visite, Service, Raison } = require('../models/index')
+const { ValidationError } = require('sequelize')
 
 //créer une visite 
 exports.createVisite = async (req, res) => {
@@ -8,6 +9,9 @@ exports.createVisite = async (req, res) => {
         res.json({ message, data: visite})
     } )
     .catch(error => {
+        if (error instanceof ValidationError){
+            return res.status(400).json({message: error.message, data: error})
+        }
         const message = `La visite n'a pas pu être ajouter. Réessayez dans quelque instant.`
         return res.status(500).json({message, data: error})
     } )

@@ -7,7 +7,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         typeRaison: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                notEmpty: { msg: 'Le type de raison ne peut pas être vide.' },
+                len: {
+                    args: [2, 100],
+                    msg: 'Le type de raison doit contenir entre 2 et 100 caractères.'
+                }
+            }
         }
     },{
         timestamps: true,

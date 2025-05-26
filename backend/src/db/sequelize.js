@@ -9,7 +9,7 @@ const initDb = () => {
     return sequelize.sync({ force: true }) .then(_ => {
         console.log('Base de données synchronisée')
     
-        Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: '1234' }).then(admin => console.log(admin.toJSON()))
+        Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: '12345678' }).then(admin => console.log(admin.toJSON()))
     
         raisons.map(raison => {
             Raison.create({ typeRaison: raison.typeRaison }).then(raison => console.log(raison.toJSON()))
