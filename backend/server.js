@@ -25,5 +25,11 @@ app
 .use(raisonRoutes)
 .use(visiteRoutes)
 
+//on ajoute la gestion des erreurs 404
+app.use(({res}) => {
+    const message = `Impossible de trouver la ressource démandée ! Vous pouvez essayer une autre URL`
+    res.status(404).json({message})
+} )
+
 
 app.listen(port, () => console.log(`Notre application node est demanrré sur http://localhost:${port}`))
