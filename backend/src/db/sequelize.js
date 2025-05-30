@@ -1,37 +1,45 @@
-const {sequelize, Visite, Raison, Service, Administrateur} = require('../models/index')
-const raisons = require('./raison_data')
-const services = require('./service_data')
-const visites = require('./visite_data')
+const { sequelize, Visite, Raison, Service, Administrateur } = require('../models/index');
+const raisons = require('./raison_data');
+const services = require('./service_data');
+const visites = require('./visite_data');
 
+const initDb = async () => {
+    try {
+        await sequelize.sync({ force: true });
+        console.log('Base de données synchronisée');
 
-// Synchroniser la base 
-const initDb = () => {
-    return sequelize.sync({ force: true }) .then(_ => {
-        console.log('Base de données synchronisée')
-    
-        Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: '12345678' }).then(admin => console.log(admin.toJSON()))
-    
-        raisons.map(raison => {
-            Raison.create({ typeRaison: raison.typeRaison }).then(raison => console.log(raison.toJSON()))
-        })
-    
-        services.map(service => {
-            Service.create({ nom: service.nom }).then(service => console.log(service.toJSON()))
-        })
-    
-        visites.map(visite => {
-            Visite.create({
+        // Création admin
+        const admin = await Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: '12345678' });
+        console.log(admin.toJSON());
+
+        // Création des raisons dans l'ordre
+        for (const raison of raisons) {
+            const created = await Raison.create({ typeRaison: raison.typeRaison });
+            console.log(created.toJSON());
+        }
+
+        // Création des services dans l'ordre
+        for (const service of services) {
+            const created = await Service.create({ nom: service.nom });
+            console.log(created.toJSON());
+        }
+
+        // Création des visites (si les raisons et services existent déjà)
+        for (const visite of visites) {
+            const created = await Visite.create({
                 date: visite.date,
                 email: visite.email,
                 satisfaction: visite.satisfaction,
                 commentaire: visite.commentaire,
                 serviceId: visite.serviceId,
                 raisonId: visite.raisonId
-            }).then(visite => console.log(visite.toJSON()))
-        })
-    
-    })
-    .catch((err) => console.error('Erreur de sync :', err))
-}
+            });
+            console.log(created.toJSON());
+        }
 
-module.exports = {initDb} 
+    } catch (err) {
+        console.error('Erreur de sync :', err);
+    }
+};
+
+module.exports = { initDb };
