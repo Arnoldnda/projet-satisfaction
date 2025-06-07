@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/visiteFom.js" defer></script>
     <title>Formulaire de Satisfaction</title>
     <style>
         body {
@@ -144,7 +145,7 @@
 </head>
 <body>
     <div class="contener_form">
-        <form id="satisfactionForm" action="/submit" method="post" >
+        <form id="satisfactionForm" method="post" >
             <fieldset>
                 <h1>Formulaire de Satisfaction</h2>
                 <!-- Info visite -->
@@ -154,35 +155,20 @@
                 <label for="service">Service concerné</label>
                 <select id="service" name="service" required>
                     <option value="" disabled selected>Choisir</option>
-                    <option value="consultations">Consultations médicales</option>
-
-                    <!-- <option value="urgences">Urgences</option>
-                    <option value="hospitalisation">Hospitalisation (médecine, chirurgie, etc.)</option>
-                    <option value="soins_infirmiers">Soins infirmiers</option>
-                    <option value="imagerie">Services d’imagerie médicale</option>
-                    <option value="laboratoire">Laboratoire d’analyses médicales</option>
-                    <option value="maternite_pediatrie">Maternité et pédiatrie</option>
-                    <option value="reeducation">Services de rééducation et kinésithérapie</option> -->
+                    
                 </select>
 
                 <!-- Raison de la visite -->
-                <label for="raisonvisit">Quelle est la raison principale de votre visite aujourd'hui ?</label>
+                <label for="raisonvisit">Quelle est la raison principale de votre visite ?</label>
                 <select id="raisonvisit" name="raisonvisit" required>
                     <option value="" disabled selected>Sélectionnez une raison</option>
-                    <option value="urgence">Urgence médicale</option>
-
-                    <!-- <option value="consultation">Consultation spécialisée</option>
-                    <option value="examen">Examen diagnostique (IRM, scanner, etc.)</option>
-                    <option value="hospitalisation">Hospitalisation (chirurgie, accouchement, etc.)</option>
-                    <option value="visite_proche">Visite à un proche</option>
-                    <option value="prevention">Raison préventive (vaccin, bilan)</option>
-                    <option value="autre">Autre</option> -->
+                    
                 </select>
 
-                <div id="autreraison" style="display: none;">
+                <!-- <div id="autreraison" style="display: none;">
                     <label for="autreraisonInput">Précisez la raison :</label>
                     <input type="text" id="autreraisonInput" name="autre_raison" placeholder="Décrivez la raison">
-                </div>
+                </div> -->
 
                 <!-- Niveau de satisfaction -->
                 <label for="satisfaction">Niveau de satisfaction :</label>
@@ -220,17 +206,17 @@
 
     <script>
         // Afficher le champ "Précisez" si "Autre" est sélectionné
-        document.getElementById('raisonvisit').addEventListener('change', function() {
-            const autreraisonDiv = document.getElementById('autreraison');
-            const autreraisonInput = document.getElementById('autreraisonInput');
-            if (this.value === 'autre') {
-                autreraisonDiv.style.display = 'block';
-                autreraisonInput.setAttribute('required', 'true');
-            } else {
-                autreraisonDiv.style.display = 'none';
-                autreraisonInput.removeAttribute('required');
-            }
-        });
+        // document.getElementById('raisonvisit').addEventListener('change', function() {
+        //     const autreraisonDiv = document.getElementById('autreraison');
+        //     const autreraisonInput = document.getElementById('autreraisonInput');
+        //     if (this.value === '9') {
+        //         autreraisonDiv.style.display = 'block';
+        //         autreraisonInput.setAttribute('required', 'true');
+        //     } else {
+        //         autreraisonDiv.style.display = 'none';
+        //         autreraisonInput.removeAttribute('required');
+        //     }
+        // });
 
         // Validation du formulaire avant soumission
         document.getElementById('satisfactionForm').addEventListener('submit', function(event) {

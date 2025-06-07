@@ -31,10 +31,6 @@ const services = [
         id: 8,
         nom: "Urgences",
         created: new Date()
-    }, {
-        id: 8,
-        nom: "Autre",
-        created: new Date()
     }
    
 ];

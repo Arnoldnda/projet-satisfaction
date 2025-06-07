@@ -3,6 +3,15 @@ const { ValidationError } = require('sequelize')
 
 //créer une visite 
 exports.createVisite = async (req, res) => {
+
+    const visitDate = new Date(req.body.date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (visitDate > today) {
+        return res.status(400).json({ message: "La date de visite ne peut pas être dans le futur." });
+    }
+
     Visite.create(req.body)
     .then(visite => {
         const message = `La visites  ${visite.id} a bien été créer.`

@@ -1,5 +1,6 @@
 const express = require('express') 
 const morgan = require('morgan')
+const cors = require('cors')
 
 //Importer le fichier de connection a la base de donnée
 const sequelize = require('./src/db/sequelize')
@@ -9,6 +10,7 @@ const app = express()
 const port = 3000 
 
 app
+.use(cors())
 .use(morgan('dev'))
 .use(express.json())
 
