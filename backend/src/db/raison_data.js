@@ -31,10 +31,6 @@ const raisons = [
         id: 8,
         typeRaison: "Examen de laboratoire",
         created: new Date()
-    }, {
-        id: 9,
-        typeRaison: "Autre",
-        created: new Date()
     }
    
 ];
