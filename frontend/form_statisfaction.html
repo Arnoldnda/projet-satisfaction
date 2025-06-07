@@ -145,7 +145,7 @@
 </head>
 <body>
     <div class="contener_form">
-        <form id="satisfactionForm" action="/submit" method="post" >
+        <form id="satisfactionForm" method="post" >
             <fieldset>
                 <h1>Formulaire de Satisfaction</h2>
                 <!-- Info visite -->
@@ -165,10 +165,10 @@
                     
                 </select>
 
-                <div id="autreraison" style="display: none;">
+                <!-- <div id="autreraison" style="display: none;">
                     <label for="autreraisonInput">Précisez la raison :</label>
                     <input type="text" id="autreraisonInput" name="autre_raison" placeholder="Décrivez la raison">
-                </div>
+                </div> -->
 
                 <!-- Niveau de satisfaction -->
                 <label for="satisfaction">Niveau de satisfaction :</label>
@@ -206,17 +206,17 @@
 
     <script>
         // Afficher le champ "Précisez" si "Autre" est sélectionné
-        document.getElementById('raisonvisit').addEventListener('change', function() {
-            const autreraisonDiv = document.getElementById('autreraison');
-            const autreraisonInput = document.getElementById('autreraisonInput');
-            if (this.value === '9') {
-                autreraisonDiv.style.display = 'block';
-                autreraisonInput.setAttribute('required', 'true');
-            } else {
-                autreraisonDiv.style.display = 'none';
-                autreraisonInput.removeAttribute('required');
-            }
-        });
+        // document.getElementById('raisonvisit').addEventListener('change', function() {
+        //     const autreraisonDiv = document.getElementById('autreraison');
+        //     const autreraisonInput = document.getElementById('autreraisonInput');
+        //     if (this.value === '9') {
+        //         autreraisonDiv.style.display = 'block';
+        //         autreraisonInput.setAttribute('required', 'true');
+        //     } else {
+        //         autreraisonDiv.style.display = 'none';
+        //         autreraisonInput.removeAttribute('required');
+        //     }
+        // });
 
         // Validation du formulaire avant soumission
         document.getElementById('satisfactionForm').addEventListener('submit', function(event) {
