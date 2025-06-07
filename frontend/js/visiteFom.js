@@ -53,13 +53,23 @@ document.getElementById('satisfactionForm').addEventListener('submit', async fun
         serviceId: rawData.service,
         raisonId: rawData.raisonvisit
     }
-  
-    
-    // Si la raison sélectionnée est "Autre", remplace raisonId par une valeur personnalisée
-    if (data.raisonId === 'autre') {
-      data.raisonId = null;
-      data.autreRaison = formData.get('autre_raison');
+
+
+    // verification si la date entrée n'est pas superieur au jour d'enregistrement de la visite 
+    const visitDate = new Date(data.date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Ignore l'heure
+
+    if (visitDate > today) {
+        alert("La date de visite ne peut pas être dans le futur.");
+        return;
     }
+
+    // Si la raison sélectionnée est "Autre", remplace raisonId par une valeur personnalisée
+    // if (data.raisonId === 'autre') {
+    //   data.raisonId = null;
+    //   data.autreRaison = formData.get('autre_raison');
+    // }
   
     try {
         const response = await fetch('http://localhost:3000/api/visite', {
@@ -81,4 +91,12 @@ document.getElementById('satisfactionForm').addEventListener('submit', async fun
         alert("Une erreur est survenue");
     }
 });
+
+
+// empêcher l'utilisateur de rentrer une date superieur a la date où il enregistre ça visite 
+document.addEventListener('DOMContentLoaded', function () {
+    const today = new Date().toISOString().split('T')[0]; // format YYYY-MM-DD
+    document.getElementById('visitDate').setAttribute('max', today);
+});
+  
   
