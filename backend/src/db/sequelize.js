@@ -1,4 +1,5 @@
 const { sequelize, Visite, Raison, Service, Administrateur } = require('../models/index');
+const bcrypt = require('bcrypt');
 const raisons = require('./raison_data');
 const services = require('./service_data');
 const visites = require('./visite_data');
@@ -8,9 +9,16 @@ const initDb = async () => {
         await sequelize.sync({ force: true });
         console.log('Base de données synchronisée');
 
-        // Création admin
-        const admin = await Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: '12345678' });
-        console.log(admin.toJSON());
+
+        // Création admin avec cryptage de mot de passe 
+        try {
+            const hash = await bcrypt.hash('12345678', 10);
+            const admin = await Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: hash });
+            console.log(admin.toJSON());
+        } catch (err) {
+            console.error('Erreur création admin :', err);
+        }
+       
 
         // Création des raisons dans l'ordre
         for (const raison of raisons) {
