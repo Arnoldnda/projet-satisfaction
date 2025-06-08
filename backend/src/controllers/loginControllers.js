@@ -1,5 +1,7 @@
 const {Administrateur} = require('../models/index')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const privateKey = require('../auth/private_key')
 
 exports.loginAdmin = async (req, res) => {
 
@@ -17,8 +19,15 @@ exports.loginAdmin = async (req, res) => {
 
         if (isPasswordValid) {
 
+            //JWT 
+            const token = jwt.sign(
+                {adminId: Admin.id},
+                privateKey,
+                {expiresIn: '24h'}
+            )
+
             const message = `L'utilisateur à été connecté avec succès`
-            return res.status(200).json({message, data: Admin})
+            return res.status(200).json({message, data: Admin, token})
 
         } else {
             
