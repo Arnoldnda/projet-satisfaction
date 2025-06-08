@@ -9,25 +9,25 @@ exports.loginAdmin = async (req, res) => {
 
         const { email, passwd } = req.body 
         
-        const Admin = await Administrateur.findOne({ where: { email } })
+        const admin = await Administrateur.findOne({ where: { email } })
 
-        if (!Admin) {
+        if (!admin) {
             return res.status(404).json({ message: "Administrateur non trouvé." });
         }
 
-        const isPasswordValid = await bcrypt.compare(passwd, Admin.passwd)
+        const isPasswordValid = await bcrypt.compare(passwd, admin.passwd)
 
         if (isPasswordValid) {
 
             //JWT 
             const token = jwt.sign(
-                {adminId: Admin.id},
+                {adminId: admin.id},
                 privateKey,
                 {expiresIn: '24h'}
             )
 
             const message = `L'utilisateur à été connecté avec succès`
-            return res.status(200).json({message, data: Admin, token})
+            return res.status(200).json({message, data: admin, token})
 
         } else {
             
