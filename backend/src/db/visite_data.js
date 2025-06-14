@@ -38,7 +38,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'eric.konan@example.com',
-        satisfaction: 'Très insatisfait',
+        satisfaction: 'Neutre',
         commentaire: "Je n’ai pas été pris en charge correctement.",
         serviceId: 5,
         raisonId: 5
@@ -46,7 +46,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'fatou.diallo@example.com',
-        satisfaction: 'Très satisfait',
+        satisfaction: 'Très insatisfait',
         commentaire: "Très bon suivi médical.",
         serviceId: 1,
         raisonId: 2
@@ -78,7 +78,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'nathalie.adou@example.com',
-        satisfaction: 'Très insatisfait',
+        satisfaction: 'Satisfait',
         commentaire: "Aucune communication du personnel.",
         serviceId: 5,
         raisonId: 1
@@ -94,7 +94,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'ibrahim.diawara@example.com',
-        satisfaction: 'Insatisfait',
+        satisfaction: 'Très satisfait',
         commentaire: "Consultation annulée sans prévenir.",
         serviceId: 2,
         raisonId: 4
@@ -102,7 +102,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'koffi.emmanuel@example.com',
-        satisfaction: 'Neutre',
+        satisfaction: 'Très satisfait',
         commentaire: "C'était correct, sans plus.",
         serviceId: 3,
         raisonId: 5
@@ -126,7 +126,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'yasmina.fofana@example.com',
-        satisfaction: 'Très satisfait',
+        satisfaction: 'Neutre',
         commentaire: "Très satisfaite de la consultation.",
         serviceId: 1,
         raisonId: 4
@@ -134,7 +134,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'antoine.gouet@example.com',
-        satisfaction: 'Insatisfait',
+        satisfaction: 'Satisfait',
         commentaire: "Personnel peu attentionné.",
         serviceId: 2,
         raisonId: 5
@@ -142,7 +142,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'aline.gbeuly@example.com',
-        satisfaction: 'Neutre',
+        satisfaction: 'Très insatisfait',
         commentaire: "Expérience mitigée.",
         serviceId: 3,
         raisonId: 1
@@ -150,7 +150,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'samuel.dago@example.com',
-        satisfaction: 'Satisfait',
+        satisfaction: 'Très insatisfait',
         commentaire: "La pharmacie était bien fournie.",
         serviceId: 4,
         raisonId: 2
@@ -158,7 +158,7 @@ const visites = [
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'laure.ble@example.com',
-        satisfaction: 'Très insatisfait',
+        satisfaction: 'Insatisfait',
         commentaire: "Accueil froid et non professionnel.",
         serviceId: 5,
         raisonId: 3
