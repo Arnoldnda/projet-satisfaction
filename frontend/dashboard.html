@@ -336,6 +336,16 @@
             link.click();
         }
 
+        const token = localStorage.getItem('jwt');
+
+        if (!token) {
+            // Rediriger vers la page de login s'il n'y a pas de token
+            window.location.href = './login_admin.html';
+        } else {
+            console.log("Token trouvé :", token);
+            // Tu peux même le décoder ou l'utiliser dans tes fetch
+        }
+
         // Charger les données au démarrage
         loadData();
     </script>
