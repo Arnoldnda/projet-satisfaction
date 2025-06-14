@@ -97,3 +97,31 @@ exports.getStatsByRaison = async (req, res) => {
   }
   
 };
+
+// les visites par services 
+exports.getVisitesByService = async (req, res) => {
+  try {
+    const services = await Service.findAll();
+    const results = {};
+
+    for (const service of services) {
+      const serviceName = service.nom;
+      const serviceId = service.id;
+
+      const count = await Visite.count({
+        where: { serviceId }
+      });
+
+      results[serviceName] = count;
+    }
+
+    res.status(200).json(results);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Erreur lors de la récupération des statistiques des visites par service.",
+      error
+    });
+  }
+};
+
