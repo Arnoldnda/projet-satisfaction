@@ -1,4 +1,4 @@
-const { Visite, Service } = require('../../models/index');
+const { Visite, Service, Raison } = require('../../models/index');
 
 // les satisfactions glabales 
 exports.getSatisfactionStats = async (req, res) => {
@@ -66,4 +66,34 @@ exports.getSatisfactionByService = async (req, res) => {
       error
     });
   }
+};
+
+//les visites par raison de visite 
+exports.getStatsByRaison = async (req, res) => {
+  try {
+    const raisons = await Raison.findAll(); // Toutes les raisons
+    const results = {};
+
+    for (const raison of raisons) {
+      const nomRaison = raison.typeRaison;
+      const idRaison = raison.id;
+
+      const count = await Visite.count({
+        where: {
+          raisonId: idRaison
+        }
+      });
+
+      results[nomRaison] = count;
+    }
+
+    res.status(200).json(results);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Erreur lors de la récupération des statistiques par motif de visite.",
+      error
+    });
+  }
+  
 };
