@@ -22,12 +22,14 @@ const visiteRoutes = require('./src/routes/visiteRoutes')
 const raisonRoutes = require('./src/routes/raisonRoutes')
 const serviceRoutes = require('./src/routes/serviceRoutes') 
 const loginRoutes = require('./src/routes/loginRoutes')
+const statsRoutes = require('./src/routes/stats/statsRoutes')
 
 app
 .use(serviceRoutes)
 .use(raisonRoutes)
 .use(visiteRoutes)
 .use(loginRoutes)
+.use(statsRoutes)
 
 //on ajoute la gestion des erreurs 404
 app.use(({res}) => {
