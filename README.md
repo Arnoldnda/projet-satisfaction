@@ -56,7 +56,7 @@ Ouvrir le projet avec VSCode ou un autre éditeur.
 
 Lancer WAMP ou XAMPP et activer les services Apache & MySQL.
 
-Créer une base de données nommée :`project_satisfaction`.
+Créer une base de données nommée :`project_satisfation`.
 
 ### 3. Préparer le backend
 ```bash
