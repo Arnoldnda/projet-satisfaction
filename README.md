@@ -46,11 +46,29 @@ Développer une application web permettant de :
 
 ## Fonctionnement 
 
-- `git clone https://github.com/Arnoldnda/projet-satisfaction.git` : pour recuprer le projet en local 
-- Une fois le projet en local, ouvir avec un editeur de text (vscode recommandé)
-- Lancer vwamp ou xamp, activez les services (apache et mysql)
-- Dans mysql créez une base de donné nommé **project_satisfaction**
-- Dans le terminal de vscode se deplacer dans le dossier backend `cd ./backend`
-- Une fois dans le dosier backend, installer les dependances du projet avec la commande `npm install`
-- Une fois les dépendances installé, lancé le serveur avec la commande `npm run start`
-- Quand le serveur est lancé accédez a la page **form_statisfaction**
+### 1. Cloner le projet
+```bash
+git clone https://github.com/Arnoldnda/projet-satisfaction.git
+
+### 2. Configuration locale
+Ouvrir le projet avec VSCode ou un autre éditeur.
+
+Lancer WAMP ou XAMPP et activer les services Apache & MySQL.
+
+Créer une base de données nommée :`project_satisfaction`.
+
+### 3. Préparer le backend
+```bash
+cd backend
+npm install
+npm run start
+
+### 4. Accéder à l’application
+📄 Ouvrir le fichier `form_statisfaction.html` dans un navigateur pour soumettre une réponse.
+
+🔐 Accéder au tableau de bord via la page d’administration pour consulter les résultats et statistiques ( email : **monsieurahipka@gmail.com** , pwd : **12345678**)
+
+
+
+
+
