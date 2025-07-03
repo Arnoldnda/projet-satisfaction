@@ -43,3 +43,14 @@ Développer une application web permettant de :
 - **Arnold** – Backend / Organisation
 - **Cherif** – Frontend / Interface utilisateur
 - **Archange** – Backend / Export 
+
+## Fonctionnement 
+
+- `git clone https://github.com/Arnoldnda/projet-satisfaction.git` : pour recuprer le projet en local 
+- Une fois le projet en local, ouvir avec un editeur de text (vscode recommandé)
+- Lancer vwamp ou xamp, activez les services (apache et mysql)
+- Dans mysql créez une base de donné nommé **project_satisfaction**
+- Dans le terminal de vscode se deplacer dans le dossier backend `cd ./backend`
+- Une fois dans le dosier backend, installer les dependances du projet avec la commande `npm install`
+- Une fois les dépendances installé, lancé le serveur avec la commande `npm run start`
+- Quand le serveur est lancé accédez a la page **form_statisfaction**

@@ -13,7 +13,7 @@ const initDb = async () => {
         // Création admin avec cryptage de mot de passe 
         try {
             const hash = await bcrypt.hash('12345678', 10);
-            const admin = await Administrateur.create({ email: 'ndadesirarnold@gmail.com', passwd: hash });
+            const admin = await Administrateur.create({ email: 'monsieurahipka@gmail.com', passwd: hash });
             console.log(admin.toJSON());
         } catch (err) {
             console.error('Erreur création admin :', err);

@@ -3,145 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/visiteFom.js" defer></script>
     <title>Formulaire de Satisfaction</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 10px; 
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; 
-            min-height: 100vh;
-            position: relative;
-            overflow: auto;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('./assets/background1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            filter: blur(10px);
-            z-index: -1;
-        }
-
-        .contener_form {
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 500px; 
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            color: #003a5e;
-            text-align: center;
-            margin-bottom: 12px; 
-            font-size: 1.4em; 
-            font-weight: 500;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-
-        select, input[type="text"], input[type="date"], input[type="email"], textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #a8c7e0;
-            border-radius: 4px;
-            font-size: 0.9em; 
-            background-color: #f8fafc;
-            box-sizing: border-box;
-        }
-
-        select:focus, input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus, textarea:focus {
-            outline: none;
-            border-color: #34c759;
-            box-shadow: 0 0 5px rgba(52, 199, 89, 0.3);
-        }
-
-        .star-rating {
-            display: flex;
-            flex-direction: row-reverse; 
-            justify-content: flex-end;
-        }
-        .star-rating input { display: none; }
-        .star-rating label { font-size: 24px; color: #E0E0E0; cursor: pointer; }
-        .star-rating input:checked ~ label { color: #4A90E2; } 
-        .star-rating label:hover,
-        .star-rating label:hover ~ label { color: #4A90E2; } 
+    <link rel="stylesheet" href="./css/form.css">
     
-
-        button {
-            background-color: #004a77;
-            color: #ffffff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #003558;
-        }
-
-        .error {
-            color: #d32f2f;
-            font-size: 0.8em; 
-            margin-top: 8px;
-            text-align: center;
-            display: none;
-            padding: 6px;
-            background-color: #fdeded;
-            border-radius: 4px;
-        }
-
-        input:invalid, select:invalid, textarea:invalid {
-            border-color: #d32f2f;
-            background-color: #fff5f5;
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 5px;
-            }
-            .contener_form {
-                padding: 12px;
-            }
-            h1 {
-                font-size: 1.2em;
-            }
-            select, input[type="text"], input[type="date"], input[type="email"], textarea, button {
-                padding: 6px;
-                font-size: 0.85em;
-            }
-            label {
-                font-size: 0.85em;
-            }
-            .star-rating label {
-                font-size: 18px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="contener_form">
@@ -165,15 +29,10 @@
                     
                 </select>
 
-                <!-- <div id="autreraison" style="display: none;">
-                    <label for="autreraisonInput">Précisez la raison :</label>
-                    <input type="text" id="autreraisonInput" name="autre_raison" placeholder="Décrivez la raison">
-                </div> -->
-
                 <!-- Niveau de satisfaction -->
                 <label for="satisfaction">Niveau de satisfaction :</label>
                 <div class="star-rating">
-                    <input type="radio" id="star5" name="satisfaction" value="Très Satisfait" required>
+                    <input type="radio" id="star5" name="satisfaction" value="Très satisfait" required>
                     <label for="star5">★</label>
 
                     <input type="radio" id="star4" name="satisfaction" value="Satisfait">
@@ -202,38 +61,13 @@
             </fieldset>
         </form>
         <div id="formError" class="error">Veuillez remplir tous les champs obligatoires.</div>
+
+        <div class="admin-login-link">
+            <a href="./login_admin.html">Accès administrateur</a>
+        </div>
     </div>
 
-    <script>
-        // Afficher le champ "Précisez" si "Autre" est sélectionné
-        // document.getElementById('raisonvisit').addEventListener('change', function() {
-        //     const autreraisonDiv = document.getElementById('autreraison');
-        //     const autreraisonInput = document.getElementById('autreraisonInput');
-        //     if (this.value === '9') {
-        //         autreraisonDiv.style.display = 'block';
-        //         autreraisonInput.setAttribute('required', 'true');
-        //     } else {
-        //         autreraisonDiv.style.display = 'none';
-        //         autreraisonInput.removeAttribute('required');
-        //     }
-        // });
+    <script src="./js/visiteFom.js"></script>
 
-        // Validation du formulaire avant soumission
-        document.getElementById('satisfactionForm').addEventListener('submit', function(event) {
-            const requiredFields = document.querySelectorAll('[required]');
-            let isValid = true;
-
-            requiredFields.forEach(field => {
-                if (!field.value) {
-                    isValid = false;
-                }
-            });
-
-            if (!isValid) {
-                event.preventDefault();
-                document.getElementById('formError').style.display = 'block';
-            }
-        });
-    </script>
 </body>
 </html>
