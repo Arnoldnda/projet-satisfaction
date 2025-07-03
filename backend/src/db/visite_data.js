@@ -8,7 +8,7 @@ const visites = [
         email: 'ndadesirarnold@gmail.com',
         satisfaction: 'Très satisfait',
         commentaire: "J'ai été ravi de participer à ça !",
-        serviceId: 1,
+        serviceId: 6,
         raisonId: 1
     },
     {
@@ -16,15 +16,15 @@ const visites = [
         email: 'amina.cisse@example.com',
         satisfaction: 'Insatisfait',
         commentaire: "Le temps d’attente était trop long.",
-        serviceId: 2,
-        raisonId: 2
+        serviceId: 7,
+        raisonId: 7
     },
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
         email: 'moussa.kone@example.com',
         satisfaction: 'Neutre',
         commentaire: "Service moyen, rien de spécial à signaler.",
-        serviceId: 3,
+        serviceId: 8,
         raisonId: 3
     },
     {
@@ -48,7 +48,7 @@ const visites = [
         email: 'fatou.diallo@example.com',
         satisfaction: 'Très insatisfait',
         commentaire: "Très bon suivi médical.",
-        serviceId: 1,
+        serviceId: 7,
         raisonId: 2
     },
     {
@@ -57,7 +57,7 @@ const visites = [
         satisfaction: 'Insatisfait',
         commentaire: "Le service d’accueil est à revoir.",
         serviceId: 2,
-        raisonId: 3
+        raisonId: 7
     },
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
@@ -73,7 +73,7 @@ const visites = [
         satisfaction: 'Satisfait',
         commentaire: "J’ai été bien pris en charge.",
         serviceId: 4,
-        raisonId: 5
+        raisonId: 8
     },
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
@@ -88,7 +88,7 @@ const visites = [
         email: 'christelle.akou@example.com',
         satisfaction: 'Très satisfait',
         commentaire: "Très bons équipements.",
-        serviceId: 1,
+        serviceId: 7,
         raisonId: 3
     },
     {
@@ -96,7 +96,7 @@ const visites = [
         email: 'ibrahim.diawara@example.com',
         satisfaction: 'Très satisfait',
         commentaire: "Consultation annulée sans prévenir.",
-        serviceId: 2,
+        serviceId: 5,
         raisonId: 4
     },
     {
@@ -145,7 +145,7 @@ const visites = [
         satisfaction: 'Très insatisfait',
         commentaire: "Expérience mitigée.",
         serviceId: 3,
-        raisonId: 1
+        raisonId: 6
     },
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),
@@ -153,7 +153,7 @@ const visites = [
         satisfaction: 'Très insatisfait',
         commentaire: "La pharmacie était bien fournie.",
         serviceId: 4,
-        raisonId: 2
+        raisonId: 4
     },
     {
         date: randomDate(new Date(2025, 0, 1), new Date()),

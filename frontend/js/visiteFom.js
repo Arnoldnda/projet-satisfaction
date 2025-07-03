@@ -1,6 +1,6 @@
 // fonction pour recuperer les services dans la base de donnée et les afficher dynamiquement dans le formulaire 
 function fetchServices() {
-    fetch('http://localhost:3000/api/services')
+    fetch('http://localhost:4000/api/services')
     .then(response => response.json())
     .then(result => {
         const services = result.data; // 🔥 c’est ici qu’on récupère le tableau
@@ -17,7 +17,7 @@ function fetchServices() {
   
 // fonction pour recuperer les raisons dans la base de donnée et les affichés dysnamiqement dans le formulaire  
 function fetchRaisons() {
-    fetch('http://localhost:3000/api/raisons')
+    fetch('http://localhost:4000/api/raisons')
     .then(response => response.json())
     .then(result => {
         const raisons = result.data; // 🔥 pareil ici
@@ -72,7 +72,7 @@ document.getElementById('satisfactionForm').addEventListener('submit', async fun
     // }
   
     try {
-        const response = await fetch('http://localhost:3000/api/visite', {
+        const response = await fetch('http://localhost:4000/api/visite', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
