@@ -49,6 +49,7 @@ Développer une application web permettant de :
 ### 1. Cloner le projet
 ```bash
 git clone https://github.com/Arnoldnda/projet-satisfaction.git
+```
 
 ### 2. Configuration locale
 Ouvrir le projet avec VSCode ou un autre éditeur.
@@ -62,11 +63,16 @@ Créer une base de données nommée :`project_satisfaction`.
 cd backend
 npm install
 npm run start
+```
 
 ### 4. Accéder à l’application
 📄 Ouvrir le fichier `form_statisfaction.html` dans un navigateur pour soumettre une réponse.
 
-🔐 Accéder au tableau de bord via la page d’administration pour consulter les résultats et statistiques ( email : **monsieurahipka@gmail.com** , pwd : **12345678**)
+🔐 Accéder au tableau de bord via la page d’administration pour consulter les résultats et statistiques
+
+**Identifiants de test :**
+email : `monsieurahipka@gmail.com`
+pwd : `12345678`
 
 
 
