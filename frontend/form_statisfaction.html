@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Satisfaction</title>
+    <link rel="stylesheet" href="./css/form.css">
+    
+</head>
+<body>
+    <div class="contener_form">
+        <form id="satisfactionForm" method="post" >
+            <fieldset>
+                <h1>Formulaire de Satisfaction</h2>
+                <!-- Info visite -->
+                <label for="visitDate">Date de visite</label>
+                <input type="date" id="visitDate" name="visit_date" required>
+                
+                <label for="service">Service concerné</label>
+                <select id="service" name="service" required>
+                    <option value="" disabled selected>Choisir</option>
+                    
+                </select>
+
+                <!-- Raison de la visite -->
+                <label for="raisonvisit">Quelle est la raison principale de votre visite ?</label>
+                <select id="raisonvisit" name="raisonvisit" required>
+                    <option value="" disabled selected>Sélectionnez une raison</option>
+                    
+                </select>
+
+                <!-- Niveau de satisfaction -->
+                <label for="satisfaction">Niveau de satisfaction :</label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="satisfaction" value="Très satisfait" required>
+                    <label for="star5">★</label>
+
+                    <input type="radio" id="star4" name="satisfaction" value="Satisfait">
+                    <label for="star4">★</label>
+
+                    <input type="radio" id="star3" name="satisfaction" value="Neutre">
+                    <label for="star3">★</label>
+
+                    <input type="radio" id="star2" name="satisfaction" value="Insatisfait">
+                    <label for="star2">★</label>
+
+                    <input type="radio" id="star1" name="satisfaction" value="Très insatisfait">
+                    <label for="star1">★</label>
+                </div>
+
+                <!-- Commentaires -->
+                <label for="comments">Commentaires ou suggestions :</label>
+                <textarea id="comments" name="comments" rows="3" placeholder="Partagez vos remarques..."></textarea>
+
+                <!-- Coordonnées client -->
+                <label for="mail">Adresse mail</label>
+                <input type="email" id="mail" name="mail" placeholder="email" required>
+
+                <!-- Bouton de soumission -->
+                <button type="submit">Envoyer</button>
+            </fieldset>
+        </form>
+        <div id="formError" class="error">Veuillez remplir tous les champs obligatoires.</div>
+
+        <div class="admin-login-link">
+            <a href="./login_admin.html">Accès administrateur</a>
+        </div>
+    </div>
+
+    <script src="./js/visiteFom.js"></script>
+
+</body>
+</html>
